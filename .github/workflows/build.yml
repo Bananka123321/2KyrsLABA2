@@ -55,7 +55,7 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Run GTests
-        run: build/GTestTests
+        run: ./build/Gtests/GTestTests
 
       - name: Package (Linux)
         run: |
@@ -83,7 +83,7 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Run GTests
-        run: build/GTestTests.exe
+        run: build/Gtests/GTestTests.exe
 
       - name: Package (Windows)
         run: |
