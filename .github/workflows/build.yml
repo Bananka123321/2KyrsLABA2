@@ -84,7 +84,7 @@ jobs:
 
       - name: Run GTests
         shell: cmd
-        run: build\Gtests\GTestTests.exe
+        run: build\Gtests\Release\GTestTests.exe
 
       - name: Package (Windows)
         run: |
