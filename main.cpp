@@ -21,6 +21,7 @@ int main() {
         printIP(ip);
     for (auto &ip : filterAnyByte(ips,46))
         printIP(ip);
+    std::cout << "============================================================================================";
     int a;
     std::cin >> a;
 }
