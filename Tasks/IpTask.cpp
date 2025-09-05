@@ -25,7 +25,7 @@ std::vector<std::tuple<int,int,int,int>> parseIPs(const std::vector<std::string>
         auto nums = split(ip_str, '.');
         ip_pool.emplace_back(std::stoi(nums[0]), std::stoi(nums[1]), std::stoi(nums[2]), std::stoi(nums[3]));
     }
-    std::sort(ip_pool.begin(), ip_pool.end(), std::greater<std::tuple<int,int,int,int>>());
+    std::sort(ip_pool.begin(), ip_pool.end(), [](const std::tuple<int,int,int,int>& a, const std::tuple<int,int,int,int>& b) {return a > b;});
     return ip_pool;
 }
 
