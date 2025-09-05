@@ -54,8 +54,8 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
-      - name: Run tests
-        run: ctest --test-dir build --output-on-failure
+      - name: Run GTests
+        run: build/GTestTests
 
       - name: Package (Linux)
         run: |
@@ -82,8 +82,8 @@ jobs:
       - name: Build
         run: cmake --build build --config Release
 
-      - name: Run tests
-        run: ctest --test-dir build --output-on-failure
+      - name: Run GTests
+        run: build/GTestTests.exe
 
       - name: Package (Windows)
         run: |
