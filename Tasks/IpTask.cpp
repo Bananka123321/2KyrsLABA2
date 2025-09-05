@@ -30,7 +30,7 @@ std::vector<std::tuple<int,int,int,int>> parseIPs(const std::vector<std::string>
         if (std::get<0>(a) != std::get<0>(b)) return std::get<0>(a) > std::get<0>(b);
         if (std::get<1>(a) != std::get<1>(b)) return std::get<1>(a) > std::get<1>(b);
         if (std::get<2>(a) != std::get<2>(b)) return std::get<2>(a) > std::get<2>(b);
-        return std::get<3>(a) > std::get<3>(b);
+        if (std::get<3>(a) != std::get<3>(b)) return std::get<3>(a) > std::get<3>(b);
     });
 
     return ip_pool;
