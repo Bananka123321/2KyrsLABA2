@@ -83,7 +83,8 @@ jobs:
         run: cmake --build build --config Release
 
       - name: Run GTests
-        run: ./build/Gtests/GTestTests.exe
+        shell: cmd
+        run: build\Gtests\GTestTests.exe
 
       - name: Package (Windows)
         run: |
