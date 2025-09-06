@@ -2,7 +2,7 @@
 #include "../Tasks/IpTask.h"
 
 TEST(IPTask, ParseAndSort) {
-    std::vector<std::string> input = {"192.168.1.1\tabc\txyz","10.0.0.1\tfoo\tbar","172.16.0.1\tf\tg"};
+    std::vector<std::string> input = {"192.168.1.1\tabc\txyz","10.0.0.1\tdaun\thz","172.16.0.1\tIvan\tObuhov"};
     auto res = parseIPs(input);
     EXPECT_EQ(res[0], std::make_tuple(192,168,1,1));
     EXPECT_EQ(res[2], std::make_tuple(10,0,0,1));
