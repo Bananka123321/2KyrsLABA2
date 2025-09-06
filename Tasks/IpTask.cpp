@@ -37,29 +37,34 @@ std::vector<std::tuple<int,int,int,int>> parseIPs(const std::vector<std::string>
 }
 
 void printIP(const std::tuple<int,int,int,int>& ip) {
-    std::cout << std::get<0>(ip) << "." << std::get<1>(ip) << "." 
-              << std::get<2>(ip) << "." << std::get<3>(ip) << "\n";
+    std::cout << std::get<0>(ip) << "." << std::get<1>(ip) << "." << std::get<2>(ip) << "." << std::get<3>(ip) << "\n";
 }
+
 
 std::vector<std::tuple<int,int,int,int>> filterByFirst(const std::vector<std::tuple<int,int,int,int>>& ips, int byte1) {
     std::vector<std::tuple<int,int,int,int>> res;
-    std::copy_if(ips.begin(), ips.end(), std::back_inserter(res),
-                 [byte1](const std::tuple<int,int,int,int>& ip){ return std::get<0>(ip) == byte1; });
+    for (const auto& ip : ips) {
+        if (std::get<0>(ip) == byte1)
+            res.push_back(ip);
+    }
     return res;
 }
 
 std::vector<std::tuple<int,int,int,int>> filterByFirstSecond(const std::vector<std::tuple<int,int,int,int>>& ips, int byte1, int byte2) {
     std::vector<std::tuple<int,int,int,int>> res;
-    std::copy_if(ips.begin(), ips.end(), std::back_inserter(res),
-                 [byte1, byte2](const std::tuple<int,int,int,int>& ip){ return std::get<0>(ip)==byte1 && std::get<1>(ip)==byte2; });
+    for (const auto& ip : ips) {
+        if (std::get<0>(ip) == byte1 && std::get<1>(ip) == byte2)
+            res.push_back(ip);
+    }
     return res;
 }
 
+
 std::vector<std::tuple<int,int,int,int>> filterAnyByte(const std::vector<std::tuple<int,int,int,int>>& ips, int byte) {
     std::vector<std::tuple<int,int,int,int>> res;
-    std::copy_if(ips.begin(), ips.end(), std::back_inserter(res),
-                 [byte](const std::tuple<int,int,int,int>& ip){
-                     return std::get<0>(ip)==byte || std::get<1>(ip)==byte || std::get<2>(ip)==byte || std::get<3>(ip)==byte;
-                 });
+    for (const auto& ip : ips) {
+        if (std::get<0>(ip) == byte || std::get<1>(ip) == byte || std::get<2>(ip) == byte || std::get<3>(ip) == byte)
+            res.push_back(ip);
+    }
     return res;
 }
